@@ -1,6 +1,9 @@
 package com.example.wastetowealth;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class StartActivity extends AppCompatActivity {
+    Button btn_guest,btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,26 @@ public class StartActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        btn_guest = findViewById(R.id.btn_guest);
+        btn_login = findViewById(R.id.btn_login);
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(StartActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+        btn_guest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(StartActivity.this, MainActivity.class);
+                startActivity(i);
+
+            }
         });
     }
 }
