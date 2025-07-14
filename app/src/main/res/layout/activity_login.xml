@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <Button
-        android:id="@+id/btn_googletton6"
+        android:id="@+id/btn_google"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -129,7 +129,7 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_googletton6"
+        app:layout_constraintStart_toEndOf="@+id/btn_google"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
@@ -140,7 +140,7 @@
         android:text="New user?  create account"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="@+id/btn_facebook"
-        app:layout_constraintStart_toStartOf="@+id/btn_googletton6"
+        app:layout_constraintStart_toStartOf="@+id/btn_google"
         app:layout_constraintTop_toBottomOf="@+id/btn_facebook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
