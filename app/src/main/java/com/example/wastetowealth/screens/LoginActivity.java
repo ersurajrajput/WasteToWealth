@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.wastetowealth.R;
 
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         pass = findViewById(R.id.et_pass);
         btn_login = findViewById(R.id.btn_login);
         newuser = findViewById(R.id.tv_newuser);
+
 
 
 

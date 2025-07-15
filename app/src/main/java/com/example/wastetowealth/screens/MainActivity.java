@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
+import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.wastetowealth.R;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
@@ -24,7 +26,8 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    ConstraintLayout profilePanel;
+    DrawerLayout drawerLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
+        drawerLayout = findViewById(R.id.drawerLayout);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"History",LENGTH_SHORT).show();
                     return true;
                 }if (menuItem.getItemId() == R.id.profile){
+                    drawerLayout.openDrawer(GravityCompat.END);
                     Toast.makeText(getApplicationContext(),"Profile",LENGTH_SHORT).show();
                     return true;
                 }

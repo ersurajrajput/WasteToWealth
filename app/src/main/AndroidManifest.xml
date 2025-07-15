@@ -12,8 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteToWealth">
         <activity
-            android:name=".screens.UserProfileActivity"
+            android:name=".screens.UserProfileDrawerActivity"
             android:exported="false" />
+        <activity
+            android:name=".screens.UserProfileActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/Theme.WasteToWealth.NoActionBar" />
         <activity
             android:name=".screens.MainActivity"
             android:exported="false" />
