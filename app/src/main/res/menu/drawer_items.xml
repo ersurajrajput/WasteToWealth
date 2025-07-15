@@ -2,10 +2,8 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item android:title="Login" android:icon="@drawable/login_logo"/>
+    <item android:title="about us" android:icon="@drawable/aboutus_logo"/>
+    <item android:title="contact us" android:icon="@drawable/dialer"/>
+
 </menu>

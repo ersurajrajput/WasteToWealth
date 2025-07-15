@@ -5,6 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".screens.MainActivity">
 
     <!-- ✅ Wrap all UI inside a ConstraintLayout -->
@@ -95,6 +96,7 @@
         android:layout_gravity="end"
         android:background="#EBEBEB"
         app:menu="@menu/drawer_items"
+        app:itemIconTint="@color/primary_color"
         app:headerLayout="@layout/drawer_header" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
