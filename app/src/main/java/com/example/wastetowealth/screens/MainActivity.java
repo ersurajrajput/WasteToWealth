@@ -4,6 +4,8 @@ import static android.widget.Toast.LENGTH_SHORT;
 import com.example.wastetowealth.R;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -27,9 +29,11 @@ import com.example.wastetowealth.R;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    NavigationView navigationView;
     DrawerLayout drawerLayout;
 
 
@@ -43,11 +47,23 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+         // session chake
+        SharedPreferences sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPref.getBoolean("isLoggedIn", false);
+
+        if (!isLoggedIn) {
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+            finish();
+            // redirect to home/dashboard
+        }
         ///  hide status bar
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -73,6 +89,25 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.nav_login){
+                    Intent i = new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(i);
+
+                }else if (menuItem.getItemId() == R.id.nav_aboutus){
+                    Intent i = new Intent(MainActivity.this,AboutUsActivity.class);
+                    startActivity(i);
+                }else if (menuItem.getItemId() == R.id.nav_contactus){
+                    Toast.makeText(MainActivity.this, "Login clicked", Toast.LENGTH_SHORT).show();
+                }
+
+
+                return false;
+            }
+        });
+
 
     }
 }

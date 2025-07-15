@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "885823652844",
+    "firebase_url": "https://wastetowealth-2cc9b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "wastetowealth-2cc9b",
+    "storage_bucket": "wastetowealth-2cc9b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885823652844:android:034f68236a8b7d254576c9",
+        "android_client_info": {
+          "package_name": "com.example.wastetowealth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATlENqkSOZ8d6dH0s8rZHVc7eEypCI-zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

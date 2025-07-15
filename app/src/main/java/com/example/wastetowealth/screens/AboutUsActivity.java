@@ -1,5 +1,7 @@
 package com.example.wastetowealth.screens;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.wastetowealth.R;
+import com.example.wastetowealth.StartScreen;
 
 public class AboutUsActivity extends AppCompatActivity {
 
@@ -22,5 +25,14 @@ public class AboutUsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        SharedPreferences sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPref.getBoolean("isLoggedIn", false);
+
+        if (!isLoggedIn) {
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+            finish();
+            // redirect to home/dashboard
+        }
     }
 }
