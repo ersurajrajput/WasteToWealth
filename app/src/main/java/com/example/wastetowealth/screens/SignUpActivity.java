@@ -61,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("users");
-        String userId = myRef.push().getKey();
+
 
 
 
@@ -153,12 +153,13 @@ public class SignUpActivity extends AppCompatActivity {
                             //store session
                             SharedPreferences sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPref.edit();
-                            editor.putString("email", "thsurajsinghrajput@gmail.com");
-                            editor.putString("name", "Suraj Rajput");
-                            editor.putString("utype", "NGO");
+                            editor.putString("email", v_email);
+                            editor.putString("name", v_name);
                             editor.putBoolean("isLoggedIn", true);
                             editor.apply();
                             Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(i);
+                            finish();
                         }
                     }
 

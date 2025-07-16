@@ -39,14 +39,8 @@ public class StartScreen extends AppCompatActivity {
             // redirect to home/dashboard
         }
 
-
-
-
-
-
         btn_login = findViewById(R.id.btn_login);
         btn_guest = findViewById(R.id.btn_guest);
-
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
