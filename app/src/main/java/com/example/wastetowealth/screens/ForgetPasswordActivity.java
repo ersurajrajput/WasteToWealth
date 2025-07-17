@@ -79,53 +79,6 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                             int eotp = 100000 + random.nextInt(900000);
                             fotp =String.valueOf(eotp);
 
-                            new Thread(() -> {
-                                try {
-                                    final String fromEmail = "thsurajsinghrajput@gmail.com";
-                                    final String password = "lxdehhaibrzkqkmi";
-                                    final String toEmail = snapshot.child("email").getValue(String.class);
-
-
-                                    Properties props = new Properties();
-                                    props.put("mail.smtp.auth", "true");
-                                    props.put("mail.smtp.starttls.enable", "true");
-                                    props.put("mail.smtp.host", "smtp.gmail.com");
-                                    props.put("mail.smtp.port", "587");
-
-                                    Session session = Session.getInstance(props, new Authenticator() {
-                                        protected PasswordAuthentication getPasswordAuthentication() {
-                                            return new PasswordAuthentication(fromEmail, password);
-                                        }
-                                    });
-
-                                    Message message = new MimeMessage(session);
-                                    message.setFrom(new InternetAddress(fromEmail));
-                                    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-                                    message.setSubject("Your OTP Code");
-                                    message.setText("Your OTP is: " + fotp);
-
-                                    Transport.send(message);
-
-                                    runOnUiThread(() -> Toast.makeText(getApplicationContext(), "OTP sent to email", Toast.LENGTH_SHORT).show());
-
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    runOnUiThread(() -> Toast.makeText(getApplicationContext(), "Failed to send email", Toast.LENGTH_SHORT).show());
-                                }
-                            }).start();
-                            email.setVisibility(View.GONE);
-                            btn_sendopt.setVisibility(View.GONE);
-
-                            // Show OTP field with fade-in
-                            otp.setAlpha(0f);
-                            otp.setVisibility(View.VISIBLE);
-                            otp.animate().alpha(1f).setDuration(1000).start();
-
-                            // Show verify button with fade-in
-                            btn_verifyotp.setAlpha(0f);
-                            btn_verifyotp.setVisibility(View.VISIBLE);
-                            btn_verifyotp.animate().alpha(1f).setDuration(1000).start();
-
 
 
 
