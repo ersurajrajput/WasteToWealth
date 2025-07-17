@@ -1,3 +1,12 @@
+import java.util.Properties
+val localProperties = Properties().apply {
+    load(rootProject.file("local.properties").inputStream())
+}
+val emailUser = localProperties["EMAIL_USER"] ?: ""
+val emailPass = localProperties["EMAIL_PASS"] ?: ""
+
+
+
 plugins {
     alias(libs.plugins.android.application)
 
@@ -14,7 +23,8 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
+        buildConfigField("String", "EMAIL_USER", "\"$emailUser\"")
+        buildConfigField("String", "EMAIL_PASS", "\"$emailPass\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,6 +44,9 @@ android {
 
     buildFeatures {
         viewBinding = true
+    }
+    buildFeatures {
+        buildConfig = true
     }
     packaging {
         resources {
