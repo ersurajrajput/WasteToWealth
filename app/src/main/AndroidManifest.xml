@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" >
-
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-
 
     <application
         android:allowBackup="true"
@@ -17,12 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteToWealth">
         <activity
+            android:name=".screens.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".screens.AboutUsActivity"
-            android:exported="true" >
-
-
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".screens.MainActivity"
             android:exported="false" />
@@ -40,7 +35,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

@@ -37,7 +37,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class LoginActivity extends AppCompatActivity {
     Button btn_google,btn_facebook,btn_login;
     EditText email,pass;
-    TextView newuser;
+    TextView newuser,fpass;
     FirebaseFirestore db;
 
     @Override
@@ -56,8 +56,18 @@ public class LoginActivity extends AppCompatActivity {
         pass = findViewById(R.id.et_pass);
         btn_login = findViewById(R.id.btn_login);
         newuser = findViewById(R.id.tv_newuser);
+        fpass = findViewById(R.id.tv_forgetpass);
         db = FirebaseFirestore.getInstance();
         FirebaseApp.initializeApp(this);
+
+
+        fpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),ForgetPasswordActivity.class);
+                startActivity(i);
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
 
