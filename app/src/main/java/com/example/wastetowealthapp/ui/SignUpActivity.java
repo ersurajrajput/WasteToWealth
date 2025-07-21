@@ -28,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText et_email,et_name,et_mob,et_pass,et_cpass;
-    SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+    SharedPreferences sharedPreferences;
     RadioGroup radioGroup;
     RadioButton rd_regular,rd_ngo,rd_collector;
     String userType="";
@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         FirebaseApp.initializeApp(getApplicationContext());
         DatabaseReference myref = db.getReference("users");
-
+        sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         et_mob = findViewById(R.id.et_mob);
         et_name = findViewById(R.id.et_name);
         et_pass = findViewById(R.id.et_pass);
@@ -101,13 +101,14 @@ public class SignUpActivity extends AppCompatActivity {
                     String emailKey = email.replace(".","_");
                     myref.child(emailKey).setValue(userModel)
                             .addOnSuccessListener(unused -> {
-                                Toast.makeText(SignUpActivity.this, "Signup successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpActivity.this, "Signup successful", LENGTH_SHORT).show();
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putBoolean("IsLoggedIn",true);
                                 editor.putString("name",name);
                                 editor.putString("email",email);
                                 editor.apply();
-                                Intent
+                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(i);
                                 // You can also redirect user here
                             })
                             .addOnFailureListener(e -> {
