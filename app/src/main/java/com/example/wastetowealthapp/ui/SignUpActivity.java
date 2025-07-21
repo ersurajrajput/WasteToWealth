@@ -2,6 +2,8 @@ package com.example.wastetowealthapp.ui;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText et_email,et_name,et_mob,et_pass,et_cpass;
+    SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
     RadioGroup radioGroup;
     RadioButton rd_regular,rd_ngo,rd_collector;
     String userType="";
@@ -99,6 +102,12 @@ public class SignUpActivity extends AppCompatActivity {
                     myref.child(emailKey).setValue(userModel)
                             .addOnSuccessListener(unused -> {
                                 Toast.makeText(SignUpActivity.this, "Signup successful", Toast.LENGTH_SHORT).show();
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putBoolean("IsLoggedIn",true);
+                                editor.putString("name",name);
+                                editor.putString("email",email);
+                                editor.apply();
+                                Intent
                                 // You can also redirect user here
                             })
                             .addOnFailureListener(e -> {
