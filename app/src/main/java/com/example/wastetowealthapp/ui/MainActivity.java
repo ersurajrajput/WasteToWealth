@@ -1,4 +1,4 @@
-package com.example.wastetowealthapp;
+package com.example.wastetowealthapp.ui;
 
 import android.os.Bundle;
 
@@ -8,8 +8,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.wastetowealthapp.R;
+
 public class MainActivity extends AppCompatActivity {
-    //main entry point
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

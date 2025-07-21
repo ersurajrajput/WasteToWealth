@@ -12,7 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteToWealthApp">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.WasteToWealthApp" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StartScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
